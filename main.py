@@ -1,4 +1,5 @@
 import flet as ft 
+import webbrowser
 def main(page:ft.page):
     page.title="Flet + Vercel"
     
@@ -20,10 +21,14 @@ def main(page:ft.page):
                           bgcolor=ft.colors.PURPLE_800
                           )
     page.appbar=appbar
+    def yt(e):
+        webbrowser.open("https://www.youtube.com/@ghost404-")
     page.add(ft.Row(controls=[
         ft.Column(controls=[
             ft.Text("Flet + Vercel",size=30,weight="bold"),
-        ft.CupertinoButton("Inscreva-se no meu canal", bgcolor=ft.colors.RED_700)
+        ft.CupertinoButton("subscribe on my youtube", bgcolor=ft.colors.RED_700,on_click=yt),
+        
+
         ])
     ],alignment=ft.MainAxisAlignment.CENTER))
 ft.app(target=main,view=ft.WEB_BROWSER,port=8000)
