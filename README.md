@@ -4,7 +4,7 @@ Use this repo as a template to deploy a Python [Flet](https://flet.dev) service 
 
 ## Demo
 [https://flet-deploy-render.onrender.com]
-<img src="screendemo.png" width=500>
+<img src="screendemo.png" width=800>
 follow the steps below:
 
 ## Manual Steps
