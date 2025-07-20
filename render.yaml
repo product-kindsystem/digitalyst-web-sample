@@ -1,9 +1,0 @@
-services:
-  # A Docker web service
-  - type: web
-    name: flet-deploy
-    runtime: python
-    plan: free
-    autoDeploy: false
-    buildCommand: pip install -r requirements.txt
-    startCommand: python main.py

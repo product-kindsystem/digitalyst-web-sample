@@ -1,0 +1,13 @@
+インストール参考URL：
+https://flet.dev/docs/publish/web/dynamic-website/hosting/replit/
+
+１．CreateApp
+２．Template：Python
+３．AllTools > Dependencies > flet@0.25.1
+
+"flet==0.25.1",
+"numpy==2.1.3",
+"openpyxl==3.1.5",
+"pandas==2.2.3",
+"psutil==6.1.0",
+"requests>=2.32.4",
