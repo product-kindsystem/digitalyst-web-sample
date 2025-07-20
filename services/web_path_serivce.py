@@ -52,9 +52,9 @@ class WebPath:
     def _list_uploaded_file_names():
         prefix = f"Uploads/{WebPath.TEAM_NAME}/"
         resp = WebPath.s3.list_objects_v2(Bucket=WebPath.BUCKET_NAME, Prefix=prefix)
-        WebPath.uploaded_file_names = [
+        WebPath.uploaded_file_names = sorted([
             obj["Key"].replace(prefix, "") for obj in resp.get("Contents", [])
-        ] if "Contents" in resp else []
+        ], reverse=True) if "Contents" in resp else []
 
     @staticmethod
     def get_uploaded_file_names():
