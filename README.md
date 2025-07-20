@@ -1,5 +1,21 @@
 # Youtube how to depoloy
 [https://www.youtube.com/watch?v=RN-pPq8sq_o]
+[https://dash.cloudflare.com/953af55af2652d71fbf09758e371971d/r2/default/buckets/digtalyst-storage]
+
+# Storage
+① Cloudflare R2 のセットアップ
+Cloudflare にログイン（無料アカウントOK）
+左メニュー「R2」→「Create bucket」
+バケット名を指定（例: myapp-storage）
+「Create」押下
+
+② アクセスキーを作成
+Cloudflare ダッシュボード右上「My Profile」→「API Tokens」
+R2 API Tokens タブを選択
+「Create API Token」 → 「Edit Cloudflare R2 Storage」テンプレート選択
+必要なバケット名を指定
+トークン作成 → Access key / Secret key を控える
+
 
 # Deploy Flet on Render
 Use this repo as a template to deploy a Python [Flet](https://flet.dev) service on Render.

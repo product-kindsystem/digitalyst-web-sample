@@ -5,9 +5,10 @@ from controllers.web.web_controller import WebController
 from services.web_path_serivce import WebPath
 from services.web_url_serivce import WebUrl
 from services.localization_service import LocalizationService, _
+from dotenv import load_dotenv
 
 VERSION = "0.0.0.1"
-
+load_dotenv()
 
 async def main(page: ft.Page):
 
