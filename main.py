@@ -1,6 +1,6 @@
 import flet as ft 
 import webbrowser
-def main(page:ft.page):
+def main(page:ft.Page):
     page.title="Flet + Vercel"
     
 
