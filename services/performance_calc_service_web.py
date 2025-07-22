@@ -76,7 +76,9 @@ def arrange_values_for_display(df: pd.DataFrame) -> pd.DataFrame:
 
     for col in int_cols:
         if col in df.columns:
-            df[col] = df[col].fillna(0).round(0).astype(int)
+            df[col] = df[col].fillna(0)  # NaNを0で埋める
+            df[col] = df[col].infer_objects(copy=False)  # 型推論で明示的にdowncast
+            df[col] = df[col].round(0).astype(int)  # 四捨五入して整数に変換
 
     return df
 
