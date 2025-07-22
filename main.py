@@ -12,6 +12,9 @@ load_dotenv()
 
 async def main(page: ft.Page):
 
+    if "ping" in page.route:
+        return
+
     # ルートに応じた処理をここで行う（例：ページ表示切り替え）
     async def on_route_change(e: ft.RouteChangeEvent):
         e.page.controls.clear()
