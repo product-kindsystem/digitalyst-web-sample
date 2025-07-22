@@ -57,36 +57,36 @@ class WebController:
             await self.graph_display_panel.update_graph_async(None)
 
     async def on_file_upload_click(self, e):
-        Logger.manual_event_info()
+        #Logger.manual_event_info()
         await JsonService.web_import_json_async(self.page,
                                                 self.on_file_upload_success)
 
     async def on_file_upload_success(self, e):
-        Logger.manual_event_info()
+        #Logger.manual_event_info()
         self.data.update_file_name_list()
         await self.update_async()
         await SnackBarManager.show_data_save_success_async(self.page)
 
     async def on_file_select_change(self, e):
-        Logger.manual_event_info()
+        #Logger.manual_event_info()
         selected_file_name = e.data
         self.data.select_file(selected_file_name, 0)
         await self.update_async()
 
     async def on_file_select_change2(self, e):
-        Logger.manual_event_info()
+        #Logger.manual_event_info()
         selected_file_name = e.data
         self.data.select_file(selected_file_name, 1)
         await self.update_async()
 
     async def on_drill_select_change(self, e):
-        Logger.manual_event_info()
+        #Logger.manual_event_info()
         drill_id = int(e.data)
         self.data.select_drill(drill_id, 0)
         await self.update_async()
 
     async def on_drill_select_change2(self, e):
-        Logger.manual_event_info()
+        #Logger.manual_event_info()
         drill_id = int(e.data)
         self.data.select_drill(drill_id, 1)
         await self.update_async()

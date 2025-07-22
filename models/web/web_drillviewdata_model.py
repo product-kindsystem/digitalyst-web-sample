@@ -31,6 +31,7 @@ class WebDrillViewDataModel():
 
     def __init__(self, team_name):
         self.report_mode = False
+        self.hide_setting = False
         self.team_name = team_name
         self.file_name_list = WebPath.uploaded_file_names
         self.selected_file_names = [None, None]
@@ -363,10 +364,11 @@ class WebDrillViewDataModel():
                 self.df_graph_gnss_results[i] = df_filtered.copy()
 
     # link
-    def get_report_link(self):
+    def get_report_link(self, hide_setting=True):
         # パラメータを辞書形式で定義
         params = {
             "report_mode": True,
+            "hide_setting": hide_setting,
             "team_name": self.team_name,
             "file_name": self.selected_file_names[0] or "",
             "file_name2": self.selected_file_names[1] or "",
@@ -385,12 +387,13 @@ class WebDrillViewDataModel():
         return link
 
     def set_report_param(self, params: dict):
-        report_mode = params.get("report_mode")
-        if report_mode:
-            self.report_mode = bool(report_mode)
+        report_mode = params.get("report_mode", 'False')
+        self.report_mode = report_mode == 'True'
 
         if self.report_mode:
             self.team_name = params.get("team_name", None)
+            hide_setting = params.get("hide_setting", 'False')
+            self.hide_setting = hide_setting == 'True'
 
             for i, key in enumerate(["file_name", "file_name2"]):
                 file_name = params.get(key)

@@ -13,6 +13,7 @@ load_dotenv()
 async def main(page: ft.Page):
 
     if "ping" in page.route:
+        print(f"ping")
         return
 
     # ルートに応じた処理をここで行う（例：ページ表示切り替え）
@@ -22,12 +23,10 @@ async def main(page: ft.Page):
         await main(e.page)
 
     async def on_page_resized(e):
-        print(f"page.width : {e.width}")
         pass
 
     page.on_route_change = on_route_change  # イベントハンドラ登録
     page.on_resized = on_page_resized
-    print(f"page.width : {page.width}")
 
     # 初期表示
     page.window.maximized = True
@@ -48,7 +47,8 @@ async def main(page: ft.Page):
     # ルート確認
     WebUrl.set_url(page)
     team_name = WebUrl.TEAM_NAME
-    print(f"team_name: {team_name}")
+    print(f"")
+    print(f"team:{team_name} page:{page.width} URL:{WebUrl.HTTPS_URL}")
 
     if team_name not in [
             "a", "team01", "team02", "team03", "team04", "team05"

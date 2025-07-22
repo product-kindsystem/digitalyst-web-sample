@@ -160,7 +160,7 @@ class FileDrillSelectPanel:
                 ]
                 self.drill_selects[i].value = self.data.selected_drill_ids[i]
 
-            if self.data.report_mode:
+            if self.data.report_mode and self.data.hide_setting:
                 for option in file_select.options:
                     if option.key != file_select.value:
                         option.visible = False

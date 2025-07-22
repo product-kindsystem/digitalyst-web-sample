@@ -58,7 +58,8 @@ class JsonService:
                 page.update()
 
         async def on_upload_progress(e: ft.FilePickerUploadEvent):
-            print(f"Uploading {e.file_name}: {e.progress * 100:.0f}%")
+            # print(f"Uploading {e.file_name}: {e.progress * 100:.0f}%")
+            pass
 
         async def upload_files(e):
             if file_picker.result and file_picker.result.files:
@@ -121,8 +122,8 @@ class JsonService:
                             f"{WebPath.TEAM_NAME}/{upload_file_name}", 60),
                     )
                 ]
-                print("[アップロードURL]", [f.upload_url for f in upload_files])
-                print("[アップロードファイル]", [f.name for f in upload_files])
+                # print("[アップロードURL]", [f.upload_url for f in upload_files])
+                # print("[アップロードファイル]", [f.name for f in upload_files])
                 file_picker.on_upload = on_file_upload
                 await file_picker.upload_async(upload_files)
 

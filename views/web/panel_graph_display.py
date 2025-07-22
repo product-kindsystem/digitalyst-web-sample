@@ -155,7 +155,7 @@ class GraphDisplayPanel:
             self.tagset_select.value = self.data.selected_tagset_id
             self.order_select_btn.selected_index = self.data.selected_graph_order_index
 
-        if self.data.report_mode:
+        if self.data.report_mode and self.data.hide_setting:
             for option in self.tagset_select.options:
                 if option.key != self.tagset_select.value:
                     option.visible = False
@@ -217,6 +217,8 @@ class GraphDisplayPanel:
 
     async def _on_update_graph_click(self, e):
         await self.update_graph_async(e)
+        report_link_text = self.data.get_report_link(hide_setting=False)
+        print(f"Show Graph:{report_link_text}")
 
     async def update_graph_async(self, e):
         if len(self.data.selected_metric_names) > 0 and len(
@@ -249,7 +251,6 @@ class GraphDisplayPanel:
             await self.graph_column.update_async()
 
     async def on_page_resize(self, e: ft.WindowResizeEvent):
-        print(f"width : {e.width}")
         if len(self.charts) > 0:
             for chart in self.charts:
                 chart.avg_text_row.width = e.width

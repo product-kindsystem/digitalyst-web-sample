@@ -119,7 +119,7 @@ class MetricSelectPanel(ft.UserControl):
                     ))
             await self.update_all_check_icon()
 
-        if self.data.report_mode:
+        if self.data.report_mode and self.data.hide_setting:
             self.panel.visible = False
 
         await self.panel.update_async()

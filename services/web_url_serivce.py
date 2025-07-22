@@ -15,15 +15,12 @@ class WebUrl:
 
         # URLを分解
         parsed = urlparse(page.url)
-        print(f"URL : {page.url}")
-        print(f"parsed URL : {parsed}")
         if parsed.port:
             WebUrl.HTTP_URL = f"http://{parsed.hostname}:{parsed.port}"
             WebUrl.HTTPS_URL = f"https://{parsed.hostname}:{parsed.port}"
         else:
             WebUrl.HTTP_URL = f"http://{parsed.hostname}"
             WebUrl.HTTPS_URL = f"https://{parsed.hostname}"
-        print(f"HTTPS_URL: {WebUrl.HTTPS_URL}")
 
         # 2. team_name をパスから抽出
         parsed = urlparse(page.route)

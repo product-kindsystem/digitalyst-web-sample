@@ -71,4 +71,4 @@ class WebPath:
         object_path = WebPath.get_object_path(filename)
         WebPath.s3.upload_file(local_path, WebPath.BUCKET_NAME, object_path)
         WebPath._list_uploaded_file_names()
-        print(f"Uploaded {local_path} to {object_path}")
+        print(f"Uploaded {filename} to {object_path}")
