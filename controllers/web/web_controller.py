@@ -54,6 +54,8 @@ class WebController:
     async def update_async(self):
         await self.view.update_async()
         if self.data.report_mode:
+            if self.data.selected_tagset_id > 0:
+                await self.graph_display_panel.select_tagset(self.data.selected_tagset_id)
             await self.graph_display_panel.update_graph_async(None)
 
     async def on_file_upload_click(self, e):

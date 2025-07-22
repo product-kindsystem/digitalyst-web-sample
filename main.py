@@ -48,7 +48,7 @@ async def main(page: ft.Page):
     WebUrl.set_url(page)
     team_name = WebUrl.TEAM_NAME
     print(f"")
-    print(f"team:{team_name} page:{page.width} URL:{WebUrl.HTTPS_URL}")
+    print(f"team:{team_name} page:{page.width}")
 
     if team_name not in [
             "a", "team01", "team02", "team03", "team04", "team05"
