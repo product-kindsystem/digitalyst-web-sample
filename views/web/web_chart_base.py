@@ -8,12 +8,12 @@ import services.performance_calc_service_web as performance_calc_service
 
 class WebChartBase:
 
-    def __init__(self, title, scale_steps, graph_width, avg_text_row_width):
+    def __init__(self, title, scale_steps, graph_width, graph_height, avg_text_row_width):
         self.title = title
         self.title.size = 20
         self.is_first_load = True
         self.bar_width = 50
-        self.height = 300
+        self.graph_height = graph_height
         self.bar_chart_rods = []
         self.bar_chart_rods2 = []
         self.bar_chart_labels = []
@@ -52,9 +52,10 @@ class WebChartBase:
             max_y=50,
             min_y=0,
             interactive=False,
-            height=self.height,
-            expand=True,
-            width=self.graph_width)
+            height=self.graph_height,
+            # expand=True,
+            width=self.graph_width,
+            )
         self.chart.horizontal_grid_lines.interval = self.chart.max_y / 5
 
         # 平均線用のLineChart設定
@@ -131,11 +132,12 @@ class WebChartBase:
             min_x=0,
             max_x=1,
             interactive=False,
-            height=self.height,
-            expand=True,
+            height=self.graph_height,
+            # expand=True,
+            width=self.graph_width,
             bgcolor=ft.Colors.TRANSPARENT,
             visible=False,
-            width=self.graph_width)
+        )
 
         # 平均値表示
         self.avg_text = ft.Text(
@@ -167,31 +169,35 @@ class WebChartBase:
                 bgcolor=ft.Colors.YELLOW_ACCENT_100,
                 disabled=True,
             ),
-            padding=ft.Padding(left=0, right=15, top=30, bottom=0),
+            padding=ft.Padding(left=0, right=40, top=40, bottom=0),
         )
         self.avg_text_row = ft.Row([self.avg_text_content],
                                    alignment=ft.MainAxisAlignment.END,
-                                   width=self.avg_text_row_width)
+                                #    width=self.avg_text_row_width,
+                                   expand=True)
 
-        self.chart_stack = ft.Stack(
-            [
-                ft.Row(
-                    [
-                        ft.Container(
-                            ft.Stack([
-                                self.chart,
-                                self.line_chart,
-                            ], ),
-                            padding=ft.padding.only(bottom=15),
-                        )
-                    ],
-                    scroll=ft.ScrollMode.ALWAYS,
-                ),
-                self.avg_text_row,
-            ],
+        self.chart_container = ft.Container(
+            content=ft.Stack(
+                [
+                    ft.Row(
+                        [
+                            ft.Container(
+                                ft.Stack([
+                                    self.chart,
+                                    self.line_chart,
+                                ], ),
+                                margin=ft.margin.only(bottom=15),
+                            )
+                        ],
+                        scroll=ft.ScrollMode.ALWAYS,
+                    ),
+                    self.avg_text_row,
+                ],
+            ),
+            # expand=True,
             width=self.graph_width,
         )
-        return self.chart_stack
+        return self.chart_container
 
     async def update(self, data: WebDrillViewDataModel):
         self.chart.bar_groups.clear()

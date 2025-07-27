@@ -65,7 +65,7 @@ class WebDrillViewDataModel():
         self.tag_color_list = [
             {
                 "bgcolor": ft.Colors.LIGHT_GREEN_ACCENT_700,
-                "color": ft.Colors.WHITE
+                "color": ft.Colors.BLACK
             },
             {
                 "bgcolor": ft.Colors.YELLOW,
@@ -119,6 +119,7 @@ class WebDrillViewDataModel():
         ]
         # graph
         self.selected_graph_order_index = 0
+        self.selected_graph_zoom_index = 0
 
     def update_file_name_list(self):
         self.file_name_list = WebPath.uploaded_file_names
