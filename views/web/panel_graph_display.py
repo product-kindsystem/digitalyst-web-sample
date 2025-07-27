@@ -74,15 +74,15 @@ class GraphDisplayPanel:
             ],
         )
 
-        self.graph_zoom_in_icon = ft.Container(
-            ft.Icon(ft.Icons.ZOOM_IN_MAP,
+        self.graph_zoom_out_icon = ft.Container(
+            ft.Icon(ft.Icons.ZOOM_OUT_MAP,
                     color=ft.Colors.WHITE,
                     size=24),
             padding=ft.padding.all(6),
             alignment=ft.alignment.center,
             on_hover=_on_icon_hover)
-        self.graph_zoom_out_icon = ft.Container(
-            ft.Icon(ft.Icons.ZOOM_OUT_MAP, color=ft.Colors.WHITE,
+        self.graph_zoom_in_icon = ft.Container(
+            ft.Icon(ft.Icons.ZOOM_IN_MAP, color=ft.Colors.WHITE,
                     size=24),
             padding=ft.padding.all(6),
             alignment=ft.alignment.center,
@@ -95,8 +95,8 @@ class GraphDisplayPanel:
             padding=ft.padding.symmetric(0, 0),
             width=100,
             controls=[
-                self.graph_zoom_in_icon,
                 self.graph_zoom_out_icon,
+                self.graph_zoom_in_icon,
             ],
         )
 
