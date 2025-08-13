@@ -103,6 +103,9 @@ def get_int_metrics_names():
         "DecelEffort",
         "RAccelEffort",
         "BaseBallScore",
+        "BaseBallScoreLow",
+        "BaseBallScoreMid",
+        "BaseBallScoreHigh",
         "SprintEffort",
         "HSprintEffort",
         "RSprintEffort",
@@ -154,6 +157,9 @@ def get_int_metrics_names():
 # RAccelEffort = Column(Integer, nullable=True)
 # RAccelEffortPerMin = Column(Float, nullable=True)
 # BaseBallScore = Column(Integer, nullable=True)
+# BaseBallScoreLow = Column(Integer, nullable=True)
+# BaseBallScoreMid = Column(Integer, nullable=True)
+# BaseBallScoreHigh = Column(Integer, nullable=True)
 
 # SprintEffort = Column(Integer, nullable=True)
 # HSprintEffort = Column(Integer, nullable=True)
