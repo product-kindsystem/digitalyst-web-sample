@@ -166,6 +166,7 @@ def calculate_metrics_for_player(df10, config: ConfigModel, metrics: List[Metric
         MetricEnum.QuickAccelZone1Effort.name, MetricEnum.QuickAccelZone2Effort.name, MetricEnum.QuickAccelZone3Effort.name, MetricEnum.QuickAccelZone4Effort.name, 
         MetricEnum.QuickDecelZone1Effort.name, MetricEnum.QuickDecelZone2Effort.name, MetricEnum.QuickDecelZone3Effort.name, MetricEnum.QuickDecelZone4Effort.name, 
         MetricEnum.BaseBallScore.name, MetricEnum.BaseBallScoreLow.name, MetricEnum.BaseBallScoreMid.name, MetricEnum.BaseBallScoreHigh.name,
+        MetricEnum.PlayerLoad.name, MetricEnum.PlayerLoadPerMin.name, MetricEnum.BaseBallScore1.name, MetricEnum.BaseBallScore2.name, MetricEnum.BaseBallScore3.name,
     ]
     for enum_name in sum_list:       
         if is_result_required([enum_name]):

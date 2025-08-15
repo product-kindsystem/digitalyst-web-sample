@@ -106,6 +106,11 @@ def get_int_metrics_names():
         "BaseBallScoreLow",
         "BaseBallScoreMid",
         "BaseBallScoreHigh",
+        "PlayerLoad",
+        "PlayerLoadPerMin",
+        "BaseBallScore1",
+        "BaseBallScore2",
+        "BaseBallScore3",
         "SprintEffort",
         "HSprintEffort",
         "RSprintEffort",
@@ -160,7 +165,11 @@ def get_int_metrics_names():
 # BaseBallScoreLow = Column(Integer, nullable=True)
 # BaseBallScoreMid = Column(Integer, nullable=True)
 # BaseBallScoreHigh = Column(Integer, nullable=True)
-
+# PlayerLoad = Column(Float, nullable=True)
+# PlayerLoadPerMin = Column(Integer, nullable=True)
+# BaseBallScore1 = Column(Integer, nullable=True)
+# BaseBallScore2 = Column(Integer, nullable=True)
+# BaseBallScore3 = Column(Integer, nullable=True)
 # SprintEffort = Column(Integer, nullable=True)
 # HSprintEffort = Column(Integer, nullable=True)
 # RSprintEffort = Column(Integer, nullable=True)
